@@ -1,7 +1,7 @@
 body {
   overflow: hidden;
   background: rebeccapurple;
-  transition: background 1s ease;
+  transition: background 3s ease;
 }
 .title {
   align-items: center;

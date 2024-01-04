@@ -1,13 +1,28 @@
 function transitionGradient() {
-  let hue = 200;
+  let hue = 0;
+  let increasing = true;
 
   // Set interval for smooth transition
   const intervalId = setInterval(() => {
-    hue = (hue + 1) % 360;
-    const color = `hsl(${hue}, 100%, 50%)`; // Use HSL color format for smooth transitions
+    if (increasing) {
+      hue = (hue + 1) % 360;
+      if (hue === 0) {
+        increasing = !increasing; // Start decreasing when reaching the maximum hue
+      }
+    } else {
+      hue = (hue - 1 + 360) % 360;
+      if (hue === 255) {
+        increasing = !increasing; // Start increasing when reaching the minimum hue
+      }
+    }
+
+    const saturation = 70; // Adjust saturation (0 to 100)
+    const lightness = 70; // Adjust lightness (0 to 100)
+
+    const color = `hsl(${hue}, ${saturation}%, ${lightness}%)`; // Use HSL color format for smooth transitions
 
     document.body.style.background = color;
-  }, 1000); // Change color every 30 milliseconds (adjust as needed)
+  }, 30); // Change color every 30 milliseconds (adjust as needed)
 }
 
 // Call the function when the page loads
