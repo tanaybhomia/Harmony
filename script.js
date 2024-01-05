@@ -44,33 +44,53 @@ profile.addEventListener("click", profileredirect);
 
 // For Buttons to play audio
 // Your existing JavaScript code...
-
+// Your existing JavaScript code...
 const noiseButtons = document.querySelectorAll(".noise button");
 
 noiseButtons.forEach((button) => {
   button.addEventListener("click", () => {
     const audioId = button.dataset.audioId;
     const audioElement = document.getElementById(audioId);
-    const sliderDiv = button.nextElementSibling; // Assuming the slider div is the next sibling of the button
+    const sliderDiv = button.nextElementSibling;
+    const icon = button.querySelector("i");
 
     if (audioElement) {
-      audioElement.play();
+      if (audioElement.paused) {
+        // If audio is paused, start playing and show the slider
+        audioElement.play();
 
-      // Check if a slider already exists, if not, create and append it
-      const existingSlider = sliderDiv.querySelector('input[type="range"]');
-      if (!existingSlider) {
-        const slider = document.createElement("input");
-        slider.type = "range";
-        slider.min = "0";
-        slider.max = "1";
-        slider.step = "0.01";
-        slider.value = audioElement.volume;
+        // Check if a slider already exists, if not, create and append it
+        const existingSlider = sliderDiv.querySelector('input[type="range"]');
+        if (!existingSlider) {
+          const slider = document.createElement("input");
+          slider.type = "range";
+          slider.min = "0";
+          slider.max = "1";
+          slider.step = "0.01";
+          slider.value = audioElement.volume;
 
-        slider.addEventListener("input", () => {
-          audioElement.volume = slider.value;
-        });
+          slider.addEventListener("input", () => {
+            audioElement.volume = slider.value;
+          });
 
-        sliderDiv.appendChild(slider);
+          sliderDiv.appendChild(slider);
+        }
+
+        // Set the color of the specific icon
+        icon.style.color = "rgba(255, 255, 255, 1)";
+      } else {
+        // If audio is playing, pause it and hide the slider
+        audioElement.pause();
+        audioElement.currentTime = 0;
+
+        // Remove the slider element if it exists
+        const existingSlider = sliderDiv.querySelector('input[type="range"]');
+        if (existingSlider) {
+          existingSlider.remove();
+        }
+
+        // Reset the color of the specific icon
+        icon.style.color = "";
       }
     }
   });

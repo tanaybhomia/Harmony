@@ -89,3 +89,20 @@ ul {
   border: 1px;
   margin: 0;
 }
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 70%;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  cursor: pointer;
+}
