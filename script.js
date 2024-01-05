@@ -17,7 +17,7 @@ function transitionGradient() {
     }
 
     const saturation = 50; // Adjust saturation (0 to 100)
-    const lightness = 60; // Adjust lightness (0 to 100)
+    const lightness = 40; // Adjust lightness (0 to 100)
 
     const color = `hsl(${hue}, ${saturation}%, ${lightness}%)`; // Use HSL color format for smooth transitions
 
