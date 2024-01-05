@@ -1,15 +1,19 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url("https://cdn-uicons.flaticon.com/2.1.0/uicons-thin-straight/css/uicons-thin-straight.css");
+@import url("https://cdn-uicons.flaticon.com/2.1.0/uicons-thin-rounded/css/uicons-thin-rounded.css");
 * {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+}
+.hidden {
+  display: none;
 }
 
 html {
   box-sizing: border-box;
 }
 body {
-  overflow: hidden;
+  overflow: auto;
   background: rebeccapurple;
   transition: background 15s ease;
   padding: 0px;
@@ -37,13 +41,46 @@ ul {
   padding: 30px;
 }
 .nav i {
-  font-size: 20px;
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.7);
 }
 .nav span {
   font-size: 30px;
   font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
 }
 .nav button {
   background-color: transparent;
   border: 0;
+}
+.main {
+  height: calc(100% - 70px);
+  width: calc(100% - 900px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 200px);
+  gap: 10px;
+  margin-left: 450px;
+  margin-right: 450px;
+  margin-top: 100px;
+  text-align: center;
+}
+.main i {
+  font-size: 48px;
+  justify-content: center;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s ease;
+  padding-top: 2px;
+}
+.main i:hover {
+  color: rgba(255, 255, 255, 1);
+}
+.main .noise {
+  display: grid;
+  grid-template-rows: 65% 35%;
+  margin-bottom: 20px;
+}
+.slider {
+  background-color: black;
 }
