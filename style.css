@@ -82,5 +82,10 @@ ul {
   margin-bottom: 20px;
 }
 .slider {
-  background-color: black;
+  background-color: transparent;
+}
+.noise button {
+  background-color: transparent;
+  border: 1px;
+  margin: 0;
 }

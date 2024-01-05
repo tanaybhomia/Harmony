@@ -30,6 +30,7 @@ window.onload = transitionGradient;
 function funcmute() {
   console.log("A button test");
 }
+
 function profileredirect() {
   const url = "https://github.com/tanaybhomia";
   window.location.href = url;
@@ -40,3 +41,37 @@ mute.addEventListener("click", funcmute);
 
 const profile = document.querySelector(".github");
 profile.addEventListener("click", profileredirect);
+
+// For Buttons to play audio
+// Your existing JavaScript code...
+
+const noiseButtons = document.querySelectorAll(".noise button");
+
+noiseButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const audioId = button.dataset.audioId;
+    const audioElement = document.getElementById(audioId);
+    const sliderDiv = button.nextElementSibling; // Assuming the slider div is the next sibling of the button
+
+    if (audioElement) {
+      audioElement.play();
+
+      // Check if a slider already exists, if not, create and append it
+      const existingSlider = sliderDiv.querySelector('input[type="range"]');
+      if (!existingSlider) {
+        const slider = document.createElement("input");
+        slider.type = "range";
+        slider.min = "0";
+        slider.max = "1";
+        slider.step = "0.01";
+        slider.value = audioElement.volume;
+
+        slider.addEventListener("input", () => {
+          audioElement.volume = slider.value;
+        });
+
+        sliderDiv.appendChild(slider);
+      }
+    }
+  });
+});
