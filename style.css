@@ -11,7 +11,7 @@ html {
 body {
   overflow: hidden;
   background: rebeccapurple;
-  transition: background 10s ease;
+  transition: background 15s ease;
   padding: 0px;
   margin: 0px;
   font-family: "Poppins", sans-serif;
@@ -34,7 +34,7 @@ ul {
   display: flex;
 }
 .nav li {
-  padding: 25px;
+  padding: 30px;
 }
 .nav i {
   font-size: 20px;
@@ -42,4 +42,8 @@ ul {
 .nav span {
   font-size: 30px;
   font-weight: 700;
+}
+.nav button {
+  background-color: transparent;
+  border: 0;
 }
