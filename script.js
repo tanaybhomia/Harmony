@@ -7,25 +7,46 @@ function transitionGradient() {
     if (increasing) {
       hue = (hue + 1) % 360;
       if (hue === 0) {
-        increasing = !increasing; // Start decreasing when reaching the maximum hue
+        increasing = !increasing;
       }
     } else {
       hue = (hue - 1 + 360) % 360;
       if (hue === 255) {
-        increasing = !increasing; // Start increasing when reaching the minimum hue
+        increasing = !increasing;
       }
     }
 
-    const saturation = 50; // Adjust saturation (0 to 100)
-    const lightness = 40; // Adjust lightness (0 to 100)
+    const saturation = 50;
+    const lightness = 40;
 
-    const color = `hsl(${hue}, ${saturation}%, ${lightness}%)`; // Use HSL color format for smooth transitions
+    const color = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 
     document.body.style.background = color;
-  }, 30); // Change color every 30 milliseconds (adjust as needed)
+  }, 30);
 }
-// Call the function when the page loads
 window.onload = transitionGradient;
+
+function playInLoop(audioElement) {
+  audioElement.loop = false;
+  const restartThreshold = 2;
+
+  audioElement.addEventListener("timeupdate", () => {
+    const timeToEnd = audioElement.duration - audioElement.currentTime;
+
+    if (timeToEnd < restartThreshold) {
+      audioElement.currentTime = 0;
+      audioElement.play();
+    }
+  });
+
+  audioElement.play();
+}
+
+function stopLoop(audioElement) {
+  audioElement.loop = false;
+  audioElement.pause();
+  audioElement.currentTime = 0;
+}
 
 function funcmute() {
   console.log("A button test");
@@ -42,9 +63,6 @@ mute.addEventListener("click", funcmute);
 const profile = document.querySelector(".github");
 profile.addEventListener("click", profileredirect);
 
-// For Buttons to play audio
-// Your existing JavaScript code...
-// Your existing JavaScript code...
 const noiseButtons = document.querySelectorAll(".noise button");
 
 noiseButtons.forEach((button) => {
@@ -56,10 +74,6 @@ noiseButtons.forEach((button) => {
 
     if (audioElement) {
       if (audioElement.paused) {
-        // If audio is paused, start playing and show the slider
-        audioElement.play();
-
-        // Check if a slider already exists, if not, create and append it
         const existingSlider = sliderDiv.querySelector('input[type="range"]');
         if (!existingSlider) {
           const slider = document.createElement("input");
@@ -76,22 +90,46 @@ noiseButtons.forEach((button) => {
           sliderDiv.appendChild(slider);
         }
 
-        // Set the color of the specific icon
         icon.style.color = "rgba(255, 255, 255, 1)";
-      } else {
-        // If audio is playing, pause it and hide the slider
-        audioElement.pause();
-        audioElement.currentTime = 0;
 
-        // Remove the slider element if it exists
+        playInLoop(audioElement);
+      } else {
         const existingSlider = sliderDiv.querySelector('input[type="range"]');
         if (existingSlider) {
           existingSlider.remove();
         }
 
-        // Reset the color of the specific icon
         icon.style.color = "";
+        stopLoop(audioElement);
       }
     }
   });
 });
+
+function productivitynoise() {
+  console.log("Productivity function");
+}
+
+function relaxnoise() {
+  console.log("Noise Function");
+}
+
+function focusnoise() {
+  console.log("Focus function");
+}
+
+function writingnoise() {
+  console.log("Writing function");
+}
+
+const productivityButton = document.querySelector(".productivity button");
+productivityButton.addEventListener("click", productivitynoise);
+
+const relaxButton = document.querySelector(".relax button");
+relaxButton.addEventListener("click", relaxnoise);
+
+const focusButton = document.querySelector(".focus button");
+focusButton.addEventListener("click", focusnoise);
+
+const writingButton = document.querySelector(".writing button");
+writingButton.addEventListener("click", writingnoise);
