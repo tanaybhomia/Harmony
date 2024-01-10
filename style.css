@@ -110,19 +110,24 @@ input[type="range"]::-webkit-slider-thumb {
   height: 180px;
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, 25%);
-  margin-left: 300px;
-  margin-right: 300px;
+  grid-template-columns: repeat(4, 1fr); /* Adjusted to use fractional units */
+  margin-left: 200px; /* Center the playlists div horizontally */
+  margin-right: 200px;
   margin-top: 100px;
   text-align: center;
   border-radius: 10px;
-  gap: 10px;
-  background-color: rgba(255, 255, 255, 0.5);
+  gap: 50px;
+}
+.playlists > * {
+  justify-content: center;
+  align-items: center;
 }
 .preset {
   display: grid;
   grid-template-rows: 65% 35%;
   margin-bottom: 0px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
 }
 .playlists i {
   font-size: 80px;
@@ -130,7 +135,7 @@ input[type="range"]::-webkit-slider-thumb {
   text-align: center;
   color: rgba(255, 255, 255, 0.5);
   transition: color 0.3s ease;
-  padding-top: 2px;
+  padding-top: 50px;
 }
 .playlists i:hover {
   color: rgba(255, 255, 255, 1);
