@@ -1,5 +1,6 @@
 @import url("https://cdn-uicons.flaticon.com/2.1.0/uicons-thin-straight/css/uicons-thin-straight.css");
 @import url("https://cdn-uicons.flaticon.com/2.1.0/uicons-thin-rounded/css/uicons-thin-rounded.css");
+@import url("https://fonts.googleapis.com/css2?family=Salsa&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +19,7 @@ body {
   transition: background 15s ease;
   padding: 0px;
   margin: 0px;
-  font-family: "Elido", sans-serif;
+  font-family: "Salsa", sans-serif;
 }
 .nav {
   display: flex;
@@ -40,10 +41,10 @@ ul {
   display: flex;
 }
 .nav li {
-  padding-left: 60px;
+  padding-left: 40px;
 }
 .nav i {
-  font-size: 24px;
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.7);
 }
 .nav span {
@@ -118,7 +119,7 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: 180px;
   text-align: center;
   border-radius: 10px;
-  gap: 50px;
+  gap: 20px;
 }
 .playlists > * {
   justify-content: center;
@@ -183,3 +184,4 @@ input[type="range"]::-webkit-slider-thumb {
 .preset .slider span {
   margin-bottom: 10px;
 }
+

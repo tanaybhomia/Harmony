@@ -22,7 +22,7 @@ function transitionGradient() {
     const color = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 
     document.body.style.background = color;
-  }, 30);
+  }, 10);
 }
 
 window.onload = transitionGradient;
@@ -158,31 +158,60 @@ function playAudiosByIds(...audioIds) {
   });
 }
 
-function productivitynoise() {
-  console.log("Productivity function");
-  playAudiosByIds("soundRain", "soundForest", "soundFire");
+// function productivitynoise() {
+//   console.log("Productivity function");
+//   playAudiosByIds("soundRain", "soundForest", "soundFire");
+// }
+
+// function relaxnoise() {
+//   console.log("Noise Function");
+// }
+
+// function focusnoise() {
+//   console.log("Focus function");
+// }
+
+// function writingnoise() {
+//   console.log("Writing function");
+// }
+
+// const productivityButton = document.querySelector(".productivity button");
+// productivityButton.addEventListener("click", productivitynoise);
+
+// const relaxButton = document.querySelector(".relax button");
+// relaxButton.addEventListener("click", relaxnoise);
+
+// const focusButton = document.querySelector(".focus button");
+// focusButton.addEventListener("click", focusnoise);
+
+// const writingButton = document.querySelector(".writing button");
+// writingButton.addEventListener("click", writingnoise);
+
+// let timerElement = document.querySelector(".timer");
+// let clockElement = document.querySelector(".clock");
+
+let timerElement = document.querySelector(".timer");
+let clockElement = document.querySelector(".clock");
+
+console.log("Script loaded");
+
+function updateTime() {
+  let currentDate = new Date();
+  let hours = currentDate.getHours();
+  let minutes = currentDate.getMinutes();
+  let seconds = currentDate.getSeconds();
+
+  let formattedTime = padNumber(hours) + " : " + padNumber(minutes);
+
+  clockElement.textContent = formattedTime;
 }
 
-function relaxnoise() {
-  console.log("Noise Function");
+function padNumber(number) {
+  return number < 10 ? "0" + number : number;
 }
 
-function focusnoise() {
-  console.log("Focus function");
-}
+// Call updateTime once to initialize the clock
+updateTime();
 
-function writingnoise() {
-  console.log("Writing function");
-}
-
-const productivityButton = document.querySelector(".productivity button");
-productivityButton.addEventListener("click", productivitynoise);
-
-const relaxButton = document.querySelector(".relax button");
-relaxButton.addEventListener("click", relaxnoise);
-
-const focusButton = document.querySelector(".focus button");
-focusButton.addEventListener("click", focusnoise);
-
-const writingButton = document.querySelector(".writing button");
-writingButton.addEventListener("click", writingnoise);
+// Set up the interval to update the clock every second
+setInterval(updateTime, 1000);
