@@ -1,46 +1,46 @@
-# Harmony App
+# Harmony App 🎶
 
-Welcome to Harmony, your personalized ambient soundscape experience.
+Welcome to Harmony, your personalized ambient soundscape experience. 🌌
 
-## Overview
+## Overview 🌐
 
-Harmony is a web application that allows users to create and enjoy customized ambient soundscapes. Whether you need background noise for focus, relaxation, or creativity, Harmony has you covered.
+Harmony is a web application that allows users to create and enjoy customized ambient soundscapes. Whether you need background noise for focus, relaxation, or creativity, Harmony has you covered. 🎧
 
-## Features
+## Features 🚀
 
-### Ambient Sounds
+### Ambient Sounds 🌧️
 
-Harmony provides a variety of ambient sounds to choose from, including rain, thunder, wind, forest, water stream, fire, coffee shop, train, fan, white noise, airplane, cityscape, raining in tent, space, whale, and night sounds.
+Harmony provides a variety of ambient sounds to choose from, including rain, thunder, wind, forest, water stream, fire, coffee shop, train, fan, white noise, airplane, cityscape, raining in tent, space, whale, and night sounds. 🌈
 
-### Preset Playlists
+### Preset Playlists 🎵
 
-- **Productivity:** Designed to enhance your focus and productivity.
-- **Read:** Ideal for creating a calming atmosphere for reading.
-- **Write:** Set the mood for a creative writing session.
-- **Focus:** A combination of sounds to help improve concentration.
+- **Productivity:** Designed to enhance your focus and productivity. 🚀
+- **Read:** Ideal for creating a calming atmosphere for reading. 📖
+- **Write:** Set the mood for a creative writing session. 🖋️
+- **Focus:** A combination of sounds to help improve concentration. 🎯
 
-### Customizable Presets
+### Customizable Presets ⚙️
 
 - Each preset allows you to configure specific sounds and their volumes.
-- Tailor presets to your liking by adjusting the volume for each individual sound.
+- Tailor presets to your liking by adjusting the volume for each individual sound. 🎚️
 
-### Timer and Clock
+### Timer and Clock ⏰
 
 - Keep track of time with the built-in timer and clock.
-- Set your preferred intervals for focused work or relaxation.
+- Set your preferred intervals for focused work or relaxation. ⌛
 
-### User Controls
+### User Controls 🎮
 
-- Mute the ambient sounds with a single click.
-- Access your GitHub profile with the user-friendly interface.
+- Mute the ambient sounds with a single click. 🔇
+- Access your GitHub profile with the user-friendly interface. 👤
 
-## Usage
+## Usage 🌐
 
 1. Clone the Harmony repository.
 2. Open the `index.html` file in your preferred web browser.
-3. Explore ambient sounds, presets, and customize your experience.
+3. Explore ambient sounds, presets, and customize your experience. 🚀
 
-## How to Customize Presets
+## How to Customize Presets ⚙️
 
 1. Locate the `script2.js` file.
 2. Update the `data-audioIds` and `data-[audioId]Volume` attributes for each preset in the HTML.
@@ -56,3 +56,10 @@ Harmony provides a variety of ambient sounds to choose from, including rain, thu
   </button>
   <!-- No slider inside the preset div -->
 </div>
+```
+
+## Author 🧑🏻‍💻 
+[Tanay Bhomia](https://github.com/tanaybhomia)
+
+## License 📃
+This project is licensed under MIT License 
