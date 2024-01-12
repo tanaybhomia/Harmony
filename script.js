@@ -158,37 +158,34 @@ function playAudiosByIds(...audioIds) {
   });
 }
 
-// function productivitynoise() {
-//   console.log("Productivity function");
-//   playAudiosByIds("soundRain", "soundForest", "soundFire");
-// }
+function productivitynoise() {
+  console.log("Productivity function");
+  playAudiosByIds("soundRain", "soundForest", "soundFire");
+}
 
-// function relaxnoise() {
-//   console.log("Noise Function");
-// }
+function relaxnoise() {
+  console.log("Noise Function");
+}
 
-// function focusnoise() {
-//   console.log("Focus function");
-// }
+function focusnoise() {
+  console.log("Focus function");
+}
 
-// function writingnoise() {
-//   console.log("Writing function");
-// }
+function writingnoise() {
+  console.log("Writing function");
+}
 
-// const productivityButton = document.querySelector(".productivity button");
-// productivityButton.addEventListener("click", productivitynoise);
+const productivityButton = document.querySelector(".productivity button");
+productivityButton.addEventListener("click", productivitynoise);
 
-// const relaxButton = document.querySelector(".relax button");
-// relaxButton.addEventListener("click", relaxnoise);
+const relaxButton = document.querySelector(".relax button");
+relaxButton.addEventListener("click", relaxnoise);
 
-// const focusButton = document.querySelector(".focus button");
-// focusButton.addEventListener("click", focusnoise);
+const focusButton = document.querySelector(".focus button");
+focusButton.addEventListener("click", focusnoise);
 
-// const writingButton = document.querySelector(".writing button");
-// writingButton.addEventListener("click", writingnoise);
-
-// let timerElement = document.querySelector(".timer");
-// let clockElement = document.querySelector(".clock");
+const writingButton = document.querySelector(".writing button");
+writingButton.addEventListener("click", writingnoise);
 
 let timerElement = document.querySelector(".timer");
 let clockElement = document.querySelector(".clock");

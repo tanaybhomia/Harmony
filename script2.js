@@ -2,7 +2,6 @@ function transitionGradient() {
   let hue = 0;
   let increasing = true;
 
-  // Set interval for smooth transition
   const intervalId = setInterval(() => {
     if (increasing) {
       hue = (hue + 1) % 360;
@@ -49,29 +48,7 @@ function stopLoop(audioElement) {
   audioElement.currentTime = 0;
 }
 
-function createVolumeSlider(sliderDiv, audioElement) {
-  const slider = document.createElement("input");
-  slider.type = "range";
-  slider.min = "0";
-  slider.max = "1";
-  slider.step = "0.01";
-  slider.value = 0.7; // Set initial volume to 0.7
-
-  slider.addEventListener("input", () => {
-    audioElement.volume = slider.value;
-  });
-
-  sliderDiv.appendChild(slider);
-}
-
-function removeVolumeSlider(sliderDiv) {
-  const existingSlider = sliderDiv.querySelector('input[type="range"]');
-  if (existingSlider) {
-    existingSlider.remove();
-  }
-}
-
-function playAudio(button) {
+function playaudio(button) {
   const audioId = button.dataset.audioId;
   const audioElement = document.getElementById(audioId);
   const sliderDiv = button.nextElementSibling;
@@ -79,11 +56,32 @@ function playAudio(button) {
 
   if (audioElement) {
     if (audioElement.paused) {
-      createVolumeSlider(sliderDiv, audioElement);
+      const existingSlider = sliderDiv.querySelector('input[type="range"]');
+      if (!existingSlider) {
+        const slider = document.createElement("input");
+        slider.type = "range";
+        slider.min = "0";
+        slider.max = "1";
+        slider.step = "0.01";
+        slider.value = 0.7;
+
+        slider.addEventListener("input", () => {
+          audioElement.volume = slider.value;
+        });
+
+        sliderDiv.appendChild(slider);
+      } else {
+        existingSlider.value = 0.7;
+      }
+
       icon.style.color = "rgba(255, 255, 255, 1)";
       playInLoop(audioElement);
     } else {
-      removeVolumeSlider(sliderDiv);
+      const existingSlider = sliderDiv.querySelector('input[type="range"]');
+      if (existingSlider) {
+        existingSlider.remove();
+      }
+
       icon.style.color = "";
       stopLoop(audioElement);
     }
@@ -92,27 +90,50 @@ function playAudio(button) {
 
 const noiseButtons = document.querySelectorAll(".noise button");
 
-noiseButtons.forEach((button) => {
-  button.addEventListener("click", () => playAudio(button));
-});
+if (noiseButtons) {
+  noiseButtons.forEach((button) => {
+    button.addEventListener("click", () => playaudio(button));
+  });
+}
 
 function playAudiosByIds(...audioIds) {
   audioIds.forEach((id) => {
     const audioElement = document.getElementById(id);
     const button = document.querySelector(`[data-audio-id="${id}"]`);
-    const sliderDiv = button.nextElementSibling;
-    const icon = button.querySelector("i");
+    const sliderDiv = button ? button.nextElementSibling : null;
+    const icon = button ? button.querySelector("i") : null;
 
-    if (audioElement) {
+    if (audioElement && button && sliderDiv && icon) {
       audioElement.loop = true;
 
       if (audioElement.paused) {
-        createVolumeSlider(sliderDiv, audioElement);
+        const existingSlider = sliderDiv.querySelector('input[type="range"]');
+        if (!existingSlider) {
+          const slider = document.createElement("input");
+          slider.type = "range";
+          slider.min = "0";
+          slider.max = "1";
+          slider.step = "0.01";
+          slider.value = 0.7;
+
+          slider.addEventListener("input", () => {
+            audioElement.volume = slider.value;
+          });
+
+          sliderDiv.appendChild(slider);
+        } else {
+          existingSlider.value = 0.7;
+        }
+
         icon.style.color = "rgba(255, 255, 255, 1)";
         audioElement.volume = 0.7;
         audioElement.play();
       } else {
-        removeVolumeSlider(sliderDiv);
+        const existingSlider = sliderDiv.querySelector('input[type="range"]');
+        if (existingSlider) {
+          existingSlider.remove();
+        }
+
         icon.style.color = "";
         audioElement.pause();
       }
@@ -120,13 +141,41 @@ function playAudiosByIds(...audioIds) {
   });
 }
 
-const presetButtons = document.querySelectorAll(".preset button");
+function productivitynoise() {
+  playAudiosByIds("soundRain", "soundForest", "soundFire");
+}
 
-presetButtons.forEach((button) => {
-  button.addEventListener("click", () =>
-    playAudiosByIds(button.dataset.audioId)
-  );
-});
+function relaxnoise() {
+  console.log("Noise Function");
+}
+
+function focusnoise() {
+  console.log("Focus function");
+}
+
+function writingnoise() {
+  console.log("Writing function");
+}
+
+const productivityButton = document.querySelector("prod button");
+if (productivityButton) {
+  productivityButton.addEventListener("click", productivitynoise);
+}
+
+const relaxButton = document.querySelector(".relax button");
+if (relaxButton) {
+  relaxButton.addEventListener("click", relaxnoise);
+}
+
+const focusButton = document.querySelector(".focus button");
+if (focusButton) {
+  focusButton.addEventListener("click", focusnoise);
+}
+
+const writingButton = document.querySelector(".writing button");
+if (writingButton) {
+  writingButton.addEventListener("click", writingnoise);
+}
 
 let timerElement = document.querySelector(".timer");
 let clockElement = document.querySelector(".clock");
@@ -138,15 +187,14 @@ function updateTime() {
 
   let formattedTime = padNumber(hours) + " : " + padNumber(minutes);
 
-  clockElement.textContent = formattedTime;
+  if (clockElement) {
+    clockElement.textContent = formattedTime;
+  }
 }
 
 function padNumber(number) {
   return number < 10 ? "0" + number : number;
 }
 
-// Call updateTime once to initialize the clock
 updateTime();
-
-// Set up the interval to update the clock every second
 setInterval(updateTime, 1000);
