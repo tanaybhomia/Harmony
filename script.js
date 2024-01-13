@@ -278,3 +278,16 @@ function padNumber(number) {
 
 updateTime();
 setInterval(updateTime, 1000);
+
+function muteTab() {
+  const allAudioElements = document.querySelectorAll("audio");
+
+  allAudioElements.forEach((audio) => {
+    audio.muted = true;
+  });
+
+  console.log("Tab Muted! 🔇");
+}
+
+const mute = document.querySelector(".muting");
+mute.addEventListener("click", muteTab);

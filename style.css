@@ -16,7 +16,7 @@ html {
 }
 body {
   overflow: auto;
-  background: rebeccapurple;
+  background: rgba(0, 0, 0, 0.5);
   transition: background 15s ease;
   padding: 0px;
   margin: 0px;
@@ -37,6 +37,9 @@ body {
   top: 0;
   margin-bottom: 40px;
 }
+.nav a {
+  text-decoration: none;
+}
 ul {
   list-style: none;
   display: flex;
@@ -49,7 +52,7 @@ ul {
   color: rgba(255, 255, 255, 0.7);
 }
 .nav span {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.7);
 }
