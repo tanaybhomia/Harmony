@@ -1,6 +1,8 @@
-# Harmony App 🎶
+# Harmony 🎶
 
 Welcome to Harmony, your personalized ambient soundscape experience. 🌌
+
+![image](https://github.com/tanaybhomia/Harmony/assets/71910027/10342bdb-06e4-40ec-b9aa-3c9430db9097)
 
 ## Overview 🌐
 
@@ -12,7 +14,8 @@ Harmony is a web application that allows users to create and enjoy customized am
 
 Harmony provides a variety of ambient sounds to choose from, including rain, thunder, wind, forest, water stream, fire, coffee shop, train, fan, white noise, airplane, cityscape, raining in tent, space, whale, and night sounds. 🌈
 
-### Preset Playlists 🎵
+### Preset Playlists 🎵 [Still working on it]
+Front end is done working on backend.
 
 - **Productivity:** Designed to enhance your focus and productivity. 🚀
 - **Read:** Ideal for creating a calming atmosphere for reading. 📖
@@ -63,3 +66,8 @@ Harmony provides a variety of ambient sounds to choose from, including rain, thu
 
 ## License 📃
 This project is licensed under MIT License 
+
+## Need Help on
+- **Presets** - I want to implement the presets feature, Do read the codebase even advice would be good
+
+_PSA ChatGPT helped me a lot in this project . . . ._
