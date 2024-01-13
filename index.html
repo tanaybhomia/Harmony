@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Harmony</title>
-    <link rel="stylesheet" href="style2.css" />
+    <link rel="stylesheet" href="style.css" />
     <script
       src="https://kit.fontawesome.com/faed226b0a.js"
       crossorigin="anonymous"
@@ -219,6 +219,51 @@
         </button>
         <div class="slider"></div>
       </div>
+
+      <div class="noise">
+        <button data-audio-id="soundWaterfall">
+          <div class="icon waterfall">
+            <i class="fi fi-tr-chart-waterfall"></i>
+          </div>
+        </button>
+        <div class="slider"></div>
+      </div>
+
+      <div class="noise">
+        <button data-audio-id="soundOcean">
+          <div class="icon ocean">
+            <i class="fi fi-tr-sunrise"></i>
+          </div>
+        </button>
+        <div class="slider"></div>
+      </div>
+
+      <div class="noise">
+        <button data-audio-id="soundLeaves">
+          <div class="icon night">
+            <i class="fi fi-tr-leaf"></i>
+          </div>
+        </button>
+        <div class="slider"></div>
+      </div>
+
+      <div class="noise">
+        <button data-audio-id="soundUnderwater">
+          <div class="icon underwater">
+            <i class="fi fi-tr-mask-snorkel"></i>
+          </div>
+        </button>
+        <div class="slider"></div>
+      </div>
+
+      <div class="noise">
+        <button data-audio-id="soundKeyboard">
+          <div class="icon night">
+            <i class="fi fi-tr-typewriter"></i>
+          </div>
+        </button>
+        <div class="slider"></div>
+      </div>
     </div>
 
     <audio
@@ -333,6 +378,41 @@
       preload="auto"
     ></audio>
 
-    <script src="script2.js"></script>
+    <audio
+      id="soundWaterfall"
+      class="hidden"
+      src="/snippets/waterfall.wav"
+      preload="auto"
+    ></audio>
+
+    <audio
+      id="soundOcean"
+      class="hidden"
+      src="/snippets/oceanwaes.wav"
+      preload="auto"
+    ></audio>
+
+    <audio
+      id="soundLeaves"
+      class="hidden"
+      src="/snippets/leaves.flac"
+      preload="auto"
+    ></audio>
+
+    <audio
+      id="soundUnderwater"
+      class="hidden"
+      src="/snippets/underwater.flac"
+      preload="auto"
+    ></audio>
+
+    <audio
+      id="soundKeyboard"
+      class="hidden"
+      src="/snippets/keyboard.wav"
+      preload="auto"
+    ></audio>
+
+    <script src="script.js"></script>
   </body>
 </html>

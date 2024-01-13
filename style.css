@@ -1,5 +1,6 @@
 @import url("https://cdn-uicons.flaticon.com/2.1.0/uicons-thin-straight/css/uicons-thin-straight.css");
 @import url("https://cdn-uicons.flaticon.com/2.1.0/uicons-thin-rounded/css/uicons-thin-rounded.css");
+@import url("https://fonts.googleapis.com/css2?family=Salsa&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -18,30 +19,32 @@ body {
   transition: background 15s ease;
   padding: 0px;
   margin: 0px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Salsa", sans-serif;
 }
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 70px;
-  width: calc(100% - 20px);
+  width: calc(100% - 0px);
   padding: 20px;
   z-index: 100;
-  margin: 10px;
+  margin: 0px;
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  position: fixed;
+  top: 0;
+  margin-bottom: 40px;
 }
 ul {
   list-style: none;
   display: flex;
 }
 .nav li {
-  padding-left: 60px;
+  padding-left: 40px;
 }
 .nav i {
-  font-size: 24px;
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.7);
 }
 .nav span {
@@ -54,15 +57,15 @@ ul {
   border: 0;
 }
 .main {
-  height: calc(100% - 70px);
-  width: calc(100% - 900px);
+  height: 100%;
+  width: calc(100% - 1000px);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 200px);
+  grid-template-rows: repeat(6, 180px);
   gap: 10px;
-  margin-left: 450px;
-  margin-right: 450px;
-  margin-top: 80px;
+  margin-left: 500px;
+  margin-right: 500px;
+  margin-top: 90px;
   text-align: center;
 }
 .main i {
@@ -107,16 +110,16 @@ input[type="range"]::-webkit-slider-thumb {
   cursor: pointer;
 }
 .playlists {
-  height: 180px;
-  position: relative;
+  height: 130px;
+  position: inherit;
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* Adjusted to use fractional units */
-  margin-left: 200px; /* Center the playlists div horizontally */
-  margin-right: 200px;
-  margin-top: 100px;
+  margin-left: 400px; /* Center the playlists div horizontally */
+  margin-right: 400px;
+  margin-top: 180px;
   text-align: center;
   border-radius: 10px;
-  gap: 50px;
+  gap: 20px;
 }
 .playlists > * {
   justify-content: center;
@@ -126,16 +129,26 @@ input[type="range"]::-webkit-slider-thumb {
   display: grid;
   grid-template-rows: 65% 35%;
   margin-bottom: 0px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  backdrop-filter: blur(10px);
+}
+.preset:hover {
+  transform: translateY(-20px);
+}
+.prod:hover,
+.read:hover,
+.write:hover {
+  transform: translateY(-20px);
 }
 .playlists i {
-  font-size: 80px;
+  font-size: 42px;
   justify-content: center;
   text-align: center;
   color: rgba(255, 255, 255, 0.5);
   transition: color 0.3s ease;
-  padding-top: 50px;
 }
 .playlists i:hover {
   color: rgba(255, 255, 255, 1);
@@ -143,5 +156,126 @@ input[type="range"]::-webkit-slider-thumb {
 .playlists button {
   background-color: transparent;
   border: 1px;
-  margin: 0;
+  margin-top: 30px;
+}
+.playlist_names {
+  height: 100px;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Adjusted to use fractional units */
+  margin-left: 200px; /* Center the playlists div horizontally */
+  margin-right: 200px;
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 10px;
+  gap: 50px;
+}
+.playlist_names > * {
+  justify-content: center;
+  align-items: center;
+}
+.preset span {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  align-items: center;
+  letter-spacing: 1px;
+}
+.preset .slider span {
+  margin-bottom: 10px;
+}
+
+/* General styles remain unchanged */
+
+/* Phones */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 16px; /* Adjust the font size for better readability on smaller screens */
+  }
+
+  .nav {
+    height: 200px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav li {
+    padding: 10px;
+  }
+
+  .main {
+    height: 100%;
+    width: calc(100% - 140px);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 180px);
+    gap: 10px;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-top: 50px;
+    text-align: center;
+  }
+  .main i {
+    font-size: 32px;
+  }
+
+  .icon img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .playlists {
+    grid-template-columns: 2 1fr;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 100px;
+    margin-top: 250px;
+  }
+
+  .preset,
+  .prod,
+  .read,
+  .write {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .preset span {
+    font-size: 8px;
+  }
+}
+
+/* Tablets */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: 20px; /* Adjust the font size for better readability on tablets */
+  }
+
+  .main {
+    height: 100%;
+    width: calc(100% - 200px);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 180px);
+    gap: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 90px;
+    text-align: center;
+  }
+
+  .playlists,
+  .playlist_names {
+    grid-template-columns: repeat(2, 1fr);
+    height: 300px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .preset,
+  .prod,
+  .read,
+  .write {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }

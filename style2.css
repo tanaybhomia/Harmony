@@ -219,6 +219,11 @@ input[type="range"]::-webkit-slider-thumb {
     font-size: 32px;
   }
 
+  .icon img {
+    width: 24px;
+    height: 24px;
+  }
+
   .playlists {
     grid-template-columns: 2 1fr;
     margin-left: 10px;

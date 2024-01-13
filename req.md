@@ -1,5 +1,7 @@
-fi fi-tr-book-open-cover
+## Presets
 
-fi fi-tr-pen-nib
-
-fi fi-tr-brain-circuit
+1.  WaterFall -> 
+    Ocean Waves -> 
+    Leaves -> <i class="fi fi-tr-leaf"></i>
+    Underwater -> 
+    Keyboard Typing -> <i class="fi fi-tr-keyboard-down"></i>

@@ -1,3 +1,4 @@
+// Transitioning Background
 function transitionGradient() {
   let hue = 0;
   let increasing = true;
@@ -23,9 +24,9 @@ function transitionGradient() {
     document.body.style.background = color;
   }, 10);
 }
-
 window.onload = transitionGradient;
 
+// Playing and Stoping Audio in loops
 function playInLoop(audioElement) {
   audioElement.loop = false;
   const restartThreshold = 10;
@@ -41,13 +42,14 @@ function playInLoop(audioElement) {
 
   audioElement.play();
 }
-
 function stopLoop(audioElement) {
   audioElement.loop = false;
   audioElement.pause();
   audioElement.currentTime = 0;
 }
 
+// Playing audio for single buttons
+const noiseButtons = document.querySelectorAll(".noise button");
 function playaudio(button) {
   const audioId = button.dataset.audioId;
   const audioElement = document.getElementById(audioId);
@@ -87,15 +89,13 @@ function playaudio(button) {
     }
   }
 }
-
-const noiseButtons = document.querySelectorAll(".noise button");
-
 if (noiseButtons) {
   noiseButtons.forEach((button) => {
     button.addEventListener("click", () => playaudio(button));
   });
 }
 
+// Playing presets
 function playAudiosByIdsWithVolume(volume, ...audioIds) {
   audioIds.forEach((id) => {
     const audioElement = document.getElementById(id);
@@ -141,22 +141,106 @@ function playAudiosByIdsWithVolume(volume, ...audioIds) {
   });
 }
 
+// Stopping presets
+function stopAudiosByIds(...audioIds) {
+  audioIds.forEach((id) => {
+    const audioElement = document.getElementById(id);
+    const button = document.querySelector(`[data-audio-id="${id}"]`);
+    const sliderDiv = button ? button.nextElementSibling : null;
+    const icon = button ? button.querySelector("i") : null;
+
+    if (audioElement && button && sliderDiv && icon) {
+      audioElement.loop = false;
+
+      const existingSlider = sliderDiv.querySelector('input[type="range"]');
+      if (existingSlider) {
+        existingSlider.remove();
+      }
+
+      icon.style.color = "";
+      audioElement.pause();
+      audioElement.currentTime = 0;
+    }
+  });
+}
+
+// Checking ig audio is playing
+function isAudioPlaying(audioId) {
+  const audioElement = document.getElementById(audioId);
+  return audioElement && !audioElement.paused;
+}
+
 function relaxpreset() {
-  console.log("A relax preset");
-  playAudiosByIdsWithVolume(0.4, "soundRain");
-  playAudiosByIdsWithVolume(0.7, "soundFire");
+  const icon = document.querySelector("#relax i");
+
+  // Check if the audio is currently playing
+  const isPlaying = isAudioPlaying("soundRain") || isAudioPlaying("soundFire");
+
+  if (!isPlaying) {
+    // If not playing, start playing and change the icon color
+    playAudiosByIdsWithVolume(0.3, "soundRain");
+    playAudiosByIdsWithVolume(0.7, "soundFire");
+    icon.style.color = "rgba(255, 255, 255, 1)";
+  } else {
+    // If playing, stop the audio and toggle back the icon color
+    stopAudiosByIds("soundRain", "soundFire");
+    icon.style.color = "rgba(255, 255, 255, 0.5)";
+  }
 }
+
 function readpreset() {
-  console.log("A Read Preset");
-  playAudiosByIdsWithVolume(0.6,"sound")
+  const icon = document.querySelector("#read i");
+
+  // Check if the audio is currently playing
+  const isPlaying =
+    isAudioPlaying("soundForst") || isAudioPlaying("soundWaterstream");
+
+  if (!isPlaying) {
+    // If not playing, start playing and change the icon color
+    playAudiosByIdsWithVolume(0.7, "soundForst");
+    playAudiosByIdsWithVolume(0.5, "soundWaterstream");
+    icon.style.color = "rgba(255, 255, 255, 1)";
+  } else {
+    // If playing, stop the audio and toggle back the icon color
+    stopAudiosByIds("soundForst", "soundWaterstream");
+    icon.style.color = "rgba(255, 255, 255, 0.5)";
+  }
 }
+
 function writepreset() {
-  console.log("A Write preset");
-  playAudiosByIds("soundRain", "soundThunder", "soundWind");
+  const icon = document.querySelector("#write i");
+
+  // Check if the audio is currently playing
+  const isPlaying = isAudioPlaying("soundRain") || isAudioPlaying("soundFire");
+
+  if (!isPlaying) {
+    // If not playing, start playing and change the icon color
+    playAudiosByIdsWithVolume(0.3, "soundRain");
+    playAudiosByIdsWithVolume(0.7, "soundFire");
+    icon.style.color = "rgba(255, 255, 255, 1)";
+  } else {
+    // If playing, stop the audio and toggle back the icon color
+    stopAudiosByIds("soundRain", "soundFire");
+    icon.style.color = "rgba(255, 255, 255, 0.5)";
+  }
 }
-function focupreset() {
-  console.log("A Focus preset");
-  playAudiosByIds("soundRain", "soundThunder", "soundWind");
+
+function focuspreset() {
+  const icon = document.querySelector("#focus i");
+
+  // Check if the audio is currently playing
+  const isPlaying = isAudioPlaying("soundRain") || isAudioPlaying("soundFire");
+
+  if (!isPlaying) {
+    // If not playing, start playing and change the icon color
+    playAudiosByIdsWithVolume(0.3, "soundRain");
+    playAudiosByIdsWithVolume(0.7, "soundFire");
+    icon.style.color = "rgba(255, 255, 255, 1)";
+  } else {
+    // If playing, stop the audio and toggle back the icon color
+    stopAudiosByIds("soundRain", "soundFire");
+    icon.style.color = "rgba(255, 255, 255, 0.5)";
+  }
 }
 
 const relaxbutton = document.querySelector("#relax button");
@@ -169,11 +253,12 @@ const writebutton = document.querySelector("#write button");
 writebutton.addEventListener("click", writepreset);
 
 const focusbutton = document.querySelector("#focus button");
-focusbutton.addEventListener("click", focupreset);
+focusbutton.addEventListener("click", focuspreset);
 
 let timerElement = document.querySelector(".timer");
 let clockElement = document.querySelector(".clock");
 
+// Updating time
 function updateTime() {
   let currentDate = new Date();
   let hours = currentDate.getHours();
@@ -186,6 +271,7 @@ function updateTime() {
   }
 }
 
+// Padding number
 function padNumber(number) {
   return number < 10 ? "0" + number : number;
 }
