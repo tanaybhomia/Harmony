@@ -199,30 +199,33 @@ function poffice() {
 
   // Check if the audio is currently playing
   const isPlaying =
-    isAudioPlaying("soundForst") || isAudioPlaying("soundWaterstream");
+    isAudioPlaying("soundCoffee") ||
+    isAudioPlaying("soundKeyboard") ||
+    isAudioPlaying("soundFan");
 
   if (!isPlaying) {
     // If not playing, start playing and change the icon color
-    playAudiosByIdsWithVolume(0.7, "soundForst");
-    playAudiosByIdsWithVolume(0.5, "soundWaterstream");
+    playAudiosByIdsWithVolume(0.1, "soundCoffee");
+    playAudiosByIdsWithVolume(1.0, "soundKeyboard");
+    playAudiosByIdsWithVolume(1.0, "soundFan");
     icon.style.color = "rgba(255, 255, 255, 1)";
   } else {
     // If playing, stop the audio and toggle back the icon color
-    stopAudiosByIds("soundForst", "soundWaterstream");
+    stopAudiosByIds("soundCoffee", "soundKeyboard", "soundFan");
     icon.style.color = "rgba(255, 255, 255, 0.5)";
   }
 }
 
 function pwriting() {
-  const icon = document.querySelector("#office i");
+  const icon = document.querySelector("#writing i");
 
   // Check if the audio is currently playing
   const isPlaying = isAudioPlaying("soundRain") || isAudioPlaying("soundFire");
 
   if (!isPlaying) {
     // If not playing, start playing and change the icon color
-    playAudiosByIdsWithVolume(0.3, "soundRain");
     playAudiosByIdsWithVolume(0.7, "soundFire");
+    playAudiosByIdsWithVolume(0.3, "soundRain");
     icon.style.color = "rgba(255, 255, 255, 1)";
   } else {
     // If playing, stop the audio and toggle back the icon color
@@ -232,19 +235,30 @@ function pwriting() {
 }
 
 function punderwaterlab() {
-  const icon = document.querySelector("#underwaterlabs i");
+  const icon = document.querySelector("#underwaterlab i");
 
   // Check if the audio is currently playing
-  const isPlaying = isAudioPlaying("soundRain") || isAudioPlaying("soundFire");
+  const isPlaying =
+    isAudioPlaying("soundFan") ||
+    isAudioPlaying("soundunderwater") ||
+    isAudioPlaying("soundSpace") ||
+    isAudioPlaying("soundKeyboard");
 
   if (!isPlaying) {
     // If not playing, start playing and change the icon color
-    playAudiosByIdsWithVolume(0.3, "soundRain");
-    playAudiosByIdsWithVolume(0.7, "soundFire");
+    playAudiosByIdsWithVolume(0.8, "soundFan");
+    playAudiosByIdsWithVolume(1.0, "soundUnderwater");
+    playAudiosByIdsWithVolume(0.1, "soundSpace");
+    playAudiosByIdsWithVolume(0.8, "soundKeyboard");
     icon.style.color = "rgba(255, 255, 255, 1)";
   } else {
     // If playing, stop the audio and toggle back the icon color
-    stopAudiosByIds("soundRain", "soundFire");
+    stopAudiosByIds(
+      "soundFan",
+      "soundUnderwater",
+      "soundSpace",
+      "soundKeyboard"
+    );
     icon.style.color = "rgba(255, 255, 255, 0.5)";
   }
 }

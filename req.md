@@ -6,14 +6,16 @@ SoundForst
 SoundRain
 
 2. Writing
-   Typing
    Fire
    Coffee
 
 3. Office Focus
+   Coffee
    Keyboard
    Fan
 
 4. UnderWater Lab
+   soundFan
    soundUnderWater
    soundSpace
+   soundKeyboard
