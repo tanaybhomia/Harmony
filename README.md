@@ -14,8 +14,7 @@ Harmony is a web application that allows users to create and enjoy customized am
 
 Harmony provides a variety of ambient sounds to choose from, including rain, thunder, wind, forest, water stream, fire, coffee shop, train, fan, white noise, airplane, cityscape, raining in tent, space, whale, and night sounds. 🌈
 
-### Preset Playlists 🎵 [Still working on it]
-Front end is done working on backend.
+### Preset Playlists 🎵 
 
 - **Productivity:** Designed to enhance your focus and productivity. 🚀
 - **Read:** Ideal for creating a calming atmosphere for reading. 📖
@@ -35,13 +34,16 @@ Front end is done working on backend.
 ### User Controls 🎮
 
 - Mute the ambient sounds with a single click. 🔇
-- Access your GitHub profile with the user-friendly interface. 👤
 
 ## Usage 🌐
 
+### Cloning Repo
 1. Clone the Harmony repository.
 2. Open the `index.html` file in your preferred web browser.
 3. Explore ambient sounds, presets, and customize your experience. 🚀
+
+### Using Netify
+1. Just go to `harmonyambience.netlify.app`
 
 ## How to Customize Presets ⚙️
 
@@ -67,7 +69,7 @@ Front end is done working on backend.
 ## License 📃
 This project is licensed under MIT License 
 
-## Need Help on
-- **Presets** - I want to implement the presets feature, Do read the codebase even advice would be good
+## Goals 
+1. Want to add more presets
+2. Make the overall UI better
 
-_PSA ChatGPT helped me a lot in this project . . . ._
