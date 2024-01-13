@@ -22,7 +22,7 @@ function transitionGradient() {
     const color = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 
     document.body.style.background = color;
-  }, 10);
+  }, 100);
 }
 window.onload = transitionGradient;
 
