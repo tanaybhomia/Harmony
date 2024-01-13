@@ -69,3 +69,5 @@ This project is licensed under MIT License
 
 ## Need Help on
 - **Presets** - I want to implement the presets feature, Do read the codebase even advice would be good
+
+_PSA ChatGPT helped me a lot in this project . . . ._
