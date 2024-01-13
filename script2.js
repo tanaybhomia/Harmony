@@ -96,7 +96,7 @@ if (noiseButtons) {
   });
 }
 
-function playAudiosByIds(...audioIds) {
+function playAudiosByIdsWithVolume(volume, ...audioIds) {
   audioIds.forEach((id) => {
     const audioElement = document.getElementById(id);
     const button = document.querySelector(`[data-audio-id="${id}"]`);
@@ -114,7 +114,7 @@ function playAudiosByIds(...audioIds) {
           slider.min = "0";
           slider.max = "1";
           slider.step = "0.01";
-          slider.value = 0.7;
+          slider.value = volume;
 
           slider.addEventListener("input", () => {
             audioElement.volume = slider.value;
@@ -122,11 +122,11 @@ function playAudiosByIds(...audioIds) {
 
           sliderDiv.appendChild(slider);
         } else {
-          existingSlider.value = 0.7;
+          existingSlider.value = volume;
         }
 
         icon.style.color = "rgba(255, 255, 255, 1)";
-        audioElement.volume = 0.7;
+        audioElement.volume = volume;
         audioElement.play();
       } else {
         const existingSlider = sliderDiv.querySelector('input[type="range"]');
@@ -141,41 +141,35 @@ function playAudiosByIds(...audioIds) {
   });
 }
 
-function productivitynoise() {
-  playAudiosByIds("soundRain", "soundForest", "soundFire");
+function relaxpreset() {
+  console.log("A relax preset");
+  playAudiosByIdsWithVolume(0.4, "soundRain");
+  playAudiosByIdsWithVolume(0.7, "soundFire");
+}
+function readpreset() {
+  console.log("A Read Preset");
+  playAudiosByIdsWithVolume(0.6,"sound")
+}
+function writepreset() {
+  console.log("A Write preset");
+  playAudiosByIds("soundRain", "soundThunder", "soundWind");
+}
+function focupreset() {
+  console.log("A Focus preset");
+  playAudiosByIds("soundRain", "soundThunder", "soundWind");
 }
 
-function relaxnoise() {
-  console.log("Noise Function");
-}
+const relaxbutton = document.querySelector("#relax button");
+relaxbutton.addEventListener("click", relaxpreset);
 
-function focusnoise() {
-  console.log("Focus function");
-}
+const readbutton = document.querySelector("#read button");
+readbutton.addEventListener("click", readpreset);
 
-function writingnoise() {
-  console.log("Writing function");
-}
+const writebutton = document.querySelector("#write button");
+writebutton.addEventListener("click", writepreset);
 
-const productivityButton = document.querySelector("prod button");
-if (productivityButton) {
-  productivityButton.addEventListener("click", productivitynoise);
-}
-
-const relaxButton = document.querySelector(".relax button");
-if (relaxButton) {
-  relaxButton.addEventListener("click", relaxnoise);
-}
-
-const focusButton = document.querySelector(".focus button");
-if (focusButton) {
-  focusButton.addEventListener("click", focusnoise);
-}
-
-const writingButton = document.querySelector(".writing button");
-if (writingButton) {
-  writingButton.addEventListener("click", writingnoise);
-}
+const focusbutton = document.querySelector("#focus button");
+focusbutton.addEventListener("click", focupreset);
 
 let timerElement = document.querySelector(".timer");
 let clockElement = document.querySelector(".clock");
