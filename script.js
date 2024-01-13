@@ -170,26 +170,32 @@ function isAudioPlaying(audioId) {
   return audioElement && !audioElement.paused;
 }
 
-function relaxpreset() {
-  const icon = document.querySelector("#relax i");
+function ptrainjourney() {
+  const icon = document.querySelector("#trainjourney i");
 
   // Check if the audio is currently playing
-  const isPlaying = isAudioPlaying("soundRain") || isAudioPlaying("soundFire");
+  const isPlaying =
+    isAudioPlaying("soundTrain") ||
+    isAudioPlaying("soundForst") ||
+    isAudioPlaying("soundRain") ||
+    isAudioPlaying("soundWind");
 
   if (!isPlaying) {
     // If not playing, start playing and change the icon color
-    playAudiosByIdsWithVolume(0.3, "soundRain");
-    playAudiosByIdsWithVolume(0.7, "soundFire");
+    playAudiosByIdsWithVolume(0.9, "soundTrain");
+    playAudiosByIdsWithVolume(0.7, "soundForst");
+    playAudiosByIdsWithVolume(0.5, "soundRain");
+    playAudiosByIdsWithVolume(0.8, "soundWind");
     icon.style.color = "rgba(255, 255, 255, 1)";
   } else {
     // If playing, stop the audio and toggle back the icon color
-    stopAudiosByIds("soundRain", "soundFire");
+    stopAudiosByIds("soundTrain", "soundForst", "soundRain", "soundWind");
     icon.style.color = "rgba(255, 255, 255, 0.5)";
   }
 }
 
-function readpreset() {
-  const icon = document.querySelector("#read i");
+function poffice() {
+  const icon = document.querySelector("#office i");
 
   // Check if the audio is currently playing
   const isPlaying =
@@ -207,8 +213,8 @@ function readpreset() {
   }
 }
 
-function writepreset() {
-  const icon = document.querySelector("#write i");
+function pwriting() {
+  const icon = document.querySelector("#office i");
 
   // Check if the audio is currently playing
   const isPlaying = isAudioPlaying("soundRain") || isAudioPlaying("soundFire");
@@ -225,8 +231,8 @@ function writepreset() {
   }
 }
 
-function focuspreset() {
-  const icon = document.querySelector("#focus i");
+function punderwaterlab() {
+  const icon = document.querySelector("#underwaterlabs i");
 
   // Check if the audio is currently playing
   const isPlaying = isAudioPlaying("soundRain") || isAudioPlaying("soundFire");
@@ -243,17 +249,17 @@ function focuspreset() {
   }
 }
 
-const relaxbutton = document.querySelector("#relax button");
-relaxbutton.addEventListener("click", relaxpreset);
+const relaxbutton = document.querySelector("#trainjourney button");
+relaxbutton.addEventListener("click", ptrainjourney);
 
-const readbutton = document.querySelector("#read button");
-readbutton.addEventListener("click", readpreset);
+const readbutton = document.querySelector("#writing button");
+readbutton.addEventListener("click", pwriting);
 
-const writebutton = document.querySelector("#write button");
-writebutton.addEventListener("click", writepreset);
+const writebutton = document.querySelector("#office button");
+writebutton.addEventListener("click", poffice);
 
-const focusbutton = document.querySelector("#focus button");
-focusbutton.addEventListener("click", focuspreset);
+const focusbutton = document.querySelector("#underwaterlab button");
+focusbutton.addEventListener("click", punderwaterlab);
 
 let timerElement = document.querySelector(".timer");
 let clockElement = document.querySelector(".clock");
@@ -279,15 +285,25 @@ function padNumber(number) {
 updateTime();
 setInterval(updateTime, 1000);
 
-function muteTab() {
+let isTabMuted = false;
+function toggleMuteTab() {
+  const muteButton = document.querySelector(".nav .muting");
+  const icon = muteButton.querySelector("i");
   const allAudioElements = document.querySelectorAll("audio");
-
   allAudioElements.forEach((audio) => {
-    audio.muted = true;
+    audio.muted = !audio.muted;
   });
 
-  console.log("Tab Muted! 🔇");
+  isTabMuted = !isTabMuted;
+
+  if (isTabMuted) {
+    console.log("Tab Muted! 🔇");
+    icon.style.color = "rgba(255, 255, 255, 1)";
+  } else {
+    console.log("Tab Unmuted! 🔊");
+    icon.style.color = "rgba(255, 255, 255, 0.5)";
+  }
 }
 
 const mute = document.querySelector(".muting");
-mute.addEventListener("click", muteTab);
+mute.addEventListener("click", toggleMuteTab);

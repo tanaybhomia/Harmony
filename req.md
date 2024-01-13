@@ -1,7 +1,19 @@
 ## Presets
 
-1.  WaterFall -> 
-    Ocean Waves -> 
-    Leaves -> <i class="fi fi-tr-leaf"></i>
-    Underwater -> 
-    Keyboard Typing -> <i class="fi fi-tr-keyboard-down"></i>
+1 . Train Journey
+SoundTrain
+SoundForst
+SoundRain
+
+2. Writing
+   Typing
+   Fire
+   Coffee
+
+3. Office Focus
+   Keyboard
+   Fan
+
+4. UnderWater Lab
+   soundUnderWater
+   soundSpace
