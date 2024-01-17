@@ -263,6 +263,27 @@ function punderwaterlab() {
   }
 }
 
+function pstudying() {
+  const icon = document.querySelector("#studying i");
+
+  const isPlaying =
+    isAudioPlaying("soundRain") ||
+    isAudioPlaying("soundFire") ||
+    isAudioPlaying("soundForst");
+
+  if (!isPlaying) {
+    // If not playing, start playing and change the icon color
+    playAudiosByIdsWithVolume(0.9, "soundFire");
+    playAudiosByIdsWithVolume(0.6, "soundRain");
+    playAudiosByIdsWithVolume(0.4, "soundForst");
+    icon.style.color = "rgba(255, 255, 255, 1)";
+  } else {
+    // If playing, stop the audio and toggle back the icon color
+    stopAudiosByIds("soundRain", "soundFire", "soundForst");
+    icon.style.color = "rgba(255, 255, 255, 0.5)";
+  }
+}
+
 const relaxbutton = document.querySelector("#trainjourney button");
 relaxbutton.addEventListener("click", ptrainjourney);
 
@@ -274,6 +295,9 @@ writebutton.addEventListener("click", poffice);
 
 const focusbutton = document.querySelector("#underwaterlab button");
 focusbutton.addEventListener("click", punderwaterlab);
+
+const studyingbutton = document.querySelector("#studying button");
+studyingbutton.addEventListener("click", pstudying);
 
 let timerElement = document.querySelector(".timer");
 let clockElement = document.querySelector(".clock");
