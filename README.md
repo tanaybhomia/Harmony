@@ -2,7 +2,8 @@
 
 Welcome to Harmony, your personalized ambient soundscape experience. 🌌
 
-![image](https://github.com/tanaybhomia/Harmony/assets/71910027/6a46dd07-2fd2-44cb-96a4-f5846597b224)
+![Uploading image.png…]()
+
 
 ## Overview 🌐
 
