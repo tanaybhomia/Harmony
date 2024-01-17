@@ -70,7 +70,4 @@ Harmony provides a variety of ambient sounds to choose from, including rain, thu
 ## License 📃
 This project is licensed under MIT License 
 
-## Goals 
-1. Want to add more presets
-2. Make the overall UI better
-
+OKAY , THANK YOU. THE PROJECT HAS CLOSED, The project is now taking a lot of time for me and I have to focus on my Final Year Project as well
