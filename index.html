@@ -10,6 +10,11 @@
       crossorigin="anonymous"
     ></script>
     <link rel="icon" href="/images/icons/harmony.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   </head>
 
   <body>
@@ -38,47 +43,89 @@
       <button><span>Presets</span></button>
     </div>
 
-    <div class="playlists">
-      <div class="preset" id="trainjourney">
-        <button data-audio-id="trainjourney">
-          <div class="icon rain">
-            <i class="fi fi-tr-train-tram"></i>
-          </div>
-        </button>
-        <span>Train Journey</span>
+    <div class="playlistscont">
+      <div class="prev">
+        <a class="previcon" onclick="plusSlides(-1)">
+          <span><i class="fi fi-tr-angle-circle-left"></i></span>
+        </a>
       </div>
 
-      <div class="preset" id="writing">
-        <button data-audio-id="writing">
-          <div class="icon rain">
-            <i class="fi fi-tr-pen-swirl"></i>
+      <div class="playlists-container">
+        <div class="playlists carousel">
+          <div class="preset" id="trainjourney">
+            <button data-audio-id="trainjourney">
+              <div class="icon rain">
+                <i class="fi fi-tr-train-tram"></i>
+              </div>
+            </button>
+            <div class="slider">
+              <span>Train Journey</span>
+            </div>
           </div>
-        </button>
-        <div class="slider">
-          <span>Writing</span>
+
+          <div class="preset" id="writing">
+            <button data-audio-id="writing">
+              <div class="icon rain">
+                <i class="fi fi-tr-pen-swirl"></i>
+              </div>
+            </button>
+            <div class="slider">
+              <span>Writing</span>
+            </div>
+          </div>
+
+          <div class="preset" id="office">
+            <button data-audio-id="office">
+              <div class="icon rain">
+                <i class="fi fi-tr-fax"></i>
+              </div>
+            </button>
+            <div class="slider">
+              <span>Office</span>
+            </div>
+          </div>
+
+          <div class="preset" id="underwaterlab">
+            <button data-audio-id="underwaterlab">
+              <div class="icon rain">
+                <i class="fi fi-tr-tubes"></i>
+              </div>
+            </button>
+            <div class="slider">
+              <span>Underwater Lab</span>
+            </div>
+          </div>
+
+          <!-- Repeat the structure for other presets -->
+
+          <div class="preset" id="studying">
+            <button data-audio-id="studying">
+              <div class="icon rain">
+                <i class="fi fi-tr-books"></i>
+              </div>
+            </button>
+            <div class="slider">
+              <span>Studying</span>
+            </div>
+          </div>
+
+          <div class="preset" id="sleep">
+            <button data-audio-id="sleep">
+              <div class="icon rain">
+                <i class="fi fi-tr-snooze"></i>
+              </div>
+            </button>
+            <div class="slider">
+              <span>Sleep</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="preset" id="office">
-        <button data-audio-id="office">
-          <div class="icon rain">
-            <i class="fi fi-tr-fax"></i>
-          </div>
-        </button>
-        <div class="slider">
-          <span>Office</span>
-        </div>
-      </div>
-
-      <div class="preset" id="underwaterlab">
-        <button data-audio-id="underwaterlab">
-          <div class="icon rain">
-            <i class="fi fi-tr-tubes"></i>
-          </div>
-        </button>
-        <div class="slider">
-          <span>Underwater Lab</span>
-        </div>
+      <div class="next">
+        <a class="nexticon" onclick="plusSlides(1)">
+          <i class="fi fi-tr-angle-circle-right"></i>
+        </a>
       </div>
     </div>
 
