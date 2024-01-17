@@ -284,6 +284,27 @@ function pstudying() {
   }
 }
 
+function psleep() {
+  const icon = document.querySelector("#sleep i");
+
+  const isPlaying =
+    isAudioPlaying("soundWaterstream") ||
+    isAudioPlaying("soundForst") ||
+    isAudioPlaying("soundLeaves");
+
+  if (!isPlaying) {
+    // If not playing, start playing and change the icon color
+    playAudiosByIdsWithVolume(0.3, "soundWaterstream");
+    playAudiosByIdsWithVolume(0.7, "soundForst");
+    playAudiosByIdsWithVolume(0.7, "soundLeaves");
+    icon.style.color = "rgba(255, 255, 255, 1)";
+  } else {
+    // If playing, stop the audio and toggle back the icon color
+    stopAudiosByIds("soundWaterstream", "soundLeaves", "soundForst");
+    icon.style.color = "rgba(255, 255, 255, 0.5)";
+  }
+}
+
 const relaxbutton = document.querySelector("#trainjourney button");
 relaxbutton.addEventListener("click", ptrainjourney);
 
@@ -298,6 +319,9 @@ focusbutton.addEventListener("click", punderwaterlab);
 
 const studyingbutton = document.querySelector("#studying button");
 studyingbutton.addEventListener("click", pstudying);
+
+const sleepingbutton = document.querySelector("#sleep button");
+sleepingbutton.addEventListener("click", psleep);
 
 let timerElement = document.querySelector(".timer");
 let clockElement = document.querySelector(".clock");
