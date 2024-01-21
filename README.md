@@ -44,7 +44,7 @@ Harmony provides a variety of ambient sounds to choose from, including rain, thu
 3. Explore ambient sounds, presets, and customize your experience. 🚀
 
 ### Using Netify
-1. Just go to `harmonyambience.netlify.app`
+1. Just go to [Harmony](harmonyambience.netlify.app)
 
 ## How to Customize Presets ⚙️
 
